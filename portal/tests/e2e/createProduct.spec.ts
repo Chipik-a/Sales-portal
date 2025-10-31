@@ -1,9 +1,12 @@
 import { test, expect } from "@playwright/test";
-import { SignInPage } from "../../src/pages/signIn.page";
+import { SignInPage } from "../../src/pages/signInPage.page";
 import { HomePage } from "../../src/pages/homePage.page";
-import { ProductsPage } from "../../src/pages/product.page";
+import { ProductsPage } from "../../src/pages/productPage.page";
 import { credentials } from "../../config/env";
 import { generateProductData } from "../../src/data/salesPortal/products/generateProductData";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 test.describe("[Sales Portal] [Add Products]", () => {
   test("Add new product and verify", async ({ page }) => {
@@ -25,17 +28,10 @@ test.describe("[Sales Portal] [Add Products]", () => {
     await productsPage.uniqueElement.waitFor({ state: "visible", timeout: 60000 });
 
     const product = generateProductData();
-    await productsPage.addProduct(
-        product.name,
-        product.manufacturer,
-        product.price.toString(),
-        product.amount.toString()
-    );
+    await productsPage.addProduct(product);
 
     await expect(productsPage.toastMessage).toHaveText("Product was successfully created");
 
     await productsPage.verifyFirstRow(product.name, product.price.toString());
   });
 });
-
-//add
