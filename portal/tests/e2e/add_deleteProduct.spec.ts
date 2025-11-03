@@ -24,7 +24,7 @@ import { NOTIFICATIONS } from "../../src/data/salesPortal/notifications";
 test("[Sales Portal] [add and delete product]", async ({ loginPage, page }) => {
     const product = generateProductData();
     const productsPage = new ProductsPage(page);
-    await productsPage.navigateToAddNewProduct();
+   // await productsPage.navigateToAddNewProduct();
 
     await productsPage.addProduct(product);
     await expect(productsPage.toastMessage).toHaveText(NOTIFICATIONS.PRODUCT_CREATED);

@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { SignInPage } from "../../src/pages/signInPage.page";
 import { HomePage } from "../../src/pages/homePage.page";
 import { ProductsPage } from "../../src/pages/productPage.page";
-import { credentials } from "../../config/env";
+import { credentials } from "../../src/config/env";
 import { generateProductData } from "../../src/data/salesPortal/products/generateProductData";
 import dotenv from "dotenv";
 

@@ -1,6 +1,6 @@
 import { expect, Locator, Page } from "@playwright/test";
 import { BasePage } from "./base.page";
-import { SALES_PORTAL_URL } from "../../config/env";
+import { SALES_PORTAL_URL } from "../config/env";
 
 export class SignInPage extends BasePage {
     readonly emailInput: Locator;
