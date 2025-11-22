@@ -30,7 +30,6 @@ export class ProductsPage extends BasePage {
     this.manufacturerSelect = page.locator("#inputManufacturer");
     this.amountInput = page.locator("#inputAmount");
     this.formTitle = page.locator('#title');
-
   }
   static toastMessage(toastMessage: any) {
     throw new Error("Method not implemented.");
@@ -45,7 +44,8 @@ export class ProductsPage extends BasePage {
     // await freshButton.click({ force: true });
 
     await this.page.waitForURL("**/products/add", { timeout: 10000 });
-    await expect(this.formTitle).toBeVisible();
+    await this.page.waitForSelector("#inputName", { state: "visible", timeout: 10000 });
+    //await expect(this.formTitle).toBeVisible();
   }
 
   // async navigateToAddNewProduct() {
@@ -54,7 +54,7 @@ export class ProductsPage extends BasePage {
   // }
 
   async addProduct(product: IProduct) {
-    //await this.navigateToAddNewProduct();
+    await this.navigateToAddNewProduct();
     // await this.addProductButton.click({ force: true });
     // await expect(this.formTitle).toBeVisible();
     await expect(this.nameInput).toBeVisible({ timeout: 5000 });

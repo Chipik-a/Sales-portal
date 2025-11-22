@@ -1,7 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 import { BasePage } from "./base.page";
 
-
 export class DeleteModal extends BasePage {
     readonly confirmButton: Locator;
     readonly cancelButton: Locator;
